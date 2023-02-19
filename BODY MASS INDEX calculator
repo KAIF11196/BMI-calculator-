@@ -1,0 +1,55 @@
+def calculate_bmi(weight, height):
+    """
+    Calculate the BMI (Body Mass Index) given the weight in kilograms and height in meters.
+    """
+    bmi = weight / (height ** 2)
+    return bmi
+
+def interpret_bmi(bmi):
+    """
+    Interpret the BMI value and return a corresponding interpretation.
+    """
+    if bmi < 18.5:
+        interpretation = "Underweight"
+    elif bmi >= 18.5 and bmi < 25:
+        interpretation = "Normal weight"
+    elif bmi >= 25 and bmi < 30:
+        interpretation = "Overweight"
+    else:
+        interpretation = "Obese"
+    return interpretation
+
+def suggest_calories(bmi, gender, age):
+    """
+    Suggest a daily calorie intake based on the BMI, gender and age.
+    """
+    if bmi < 18.5:
+        if gender == "male":
+            calories = 2500 - (age * 10)
+        else:
+            calories = 2000 - (age * 10)
+    elif bmi >= 18.5 and bmi < 25:
+        calories = 2000
+    elif bmi >= 25 and bmi < 30:
+        calories = 1500
+    else:
+        calories = 1000
+    return calories
+
+# example usage
+weight = float(input("Enter your weight in kilograms: "))
+height = float(input("Enter your height in meters: "))
+gender = input("Enter your gender (male or female): ")
+age = int(input("Enter your age in years: "))
+
+bmi = calculate_bmi(weight, height)
+interpretation = interpret_bmi(bmi)
+suggested_calories = suggest_calories(bmi, gender, age)
+
+print("Your BMI is:", round(bmi, 2))
+print("Interpretation: You are", interpretation)
+print("Suggested daily calorie intake:", suggested_calories)
+
+
+#if this code not working then email me on mohammadkaifraja2@gmail.com.
+#it takes more than 1 months of my work.
